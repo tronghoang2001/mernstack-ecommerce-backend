@@ -105,4 +105,16 @@ const getProducts = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = getProducts;
+
+const getProductById = async (req, res, next) => {
+  try {
+    const product = await Product.findById(req.params.id)
+      .populate("reviews")
+      .orFail();
+    res.json(product);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getProducts, getProductById };
