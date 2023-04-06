@@ -1,12 +1,11 @@
 const Product = require("../models/ProductModel");
 const recordsPerPage = require("../config/pagination");
-const { query } = require("express");
 
 const getProducts = async (req, res, next) => {
   try {
-    //filter
     let query = {};
     let queryCondition = false;
+
     let priceQueryCondition = {};
     if (req.query.price) {
       queryCondition = true;
@@ -15,19 +14,40 @@ const getProducts = async (req, res, next) => {
     let ratingQueryCondition = {};
     if (req.query.rating) {
       queryCondition = true;
-      ratingQueryCondition = { price: { $in: req.query.rating.split(",") } };
+      ratingQueryCondition = { rating: { $in: req.query.rating.split(",") } };
+    }
+    let categoryQueryCondition = {};
+    const categoryName = req.params.categoryName || "";
+    if (categoryName) {
+      queryCondition = true;
+      let a = categoryName.replaceAll(",", "/");
+      var regEx = new RegExp("^" + a);
+      categoryQueryCondition = { category: regEx };
+    }
+    if (req.query.category) {
+      queryCondition = true;
+      let a = req.query.category.split(",").map((item) => {
+        if (item) return new RegExp("^" + item);
+      });
+      categoryQueryCondition = {
+        category: { $in: a },
+      };
     }
 
     if (queryCondition) {
       query = {
-        $and: [priceQueryCondition, ratingQueryCondition],
+        $and: [
+          priceQueryCondition,
+          ratingQueryCondition,
+          categoryQueryCondition,
+        ],
       };
     }
 
     //pagination
     const pageNum = Number(req.query.pageNum) || 1;
 
-    //sort by name, price,...
+    // sort by name, price etc.
     let sort = {};
     const sortOption = req.query.sort || "";
     if (sortOption) {
@@ -40,10 +60,11 @@ const getProducts = async (req, res, next) => {
       .skip(recordsPerPage * (pageNum - 1))
       .sort(sort)
       .limit(recordsPerPage);
+
     res.json({
       products,
       pageNum,
-      paginationLinkNumber: Math.ceil(totalProducts / recordsPerPage),
+      paginationLinksNumber: Math.ceil(totalProducts / recordsPerPage),
     });
   } catch (error) {
     next(error);
