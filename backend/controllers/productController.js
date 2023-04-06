@@ -33,6 +33,22 @@ const getProducts = async (req, res, next) => {
         category: { $in: a },
       };
     }
+    let attrsQueryCondition = [];
+    if (req.query.attrs) {
+      attrsQueryCondition = req.query.attrs.split(",").reduce((acc, item) => {
+        if (item) {
+          let a = item.split("-");
+          let values = [...a];
+          values.shift(); // removes first item
+          let a1 = {
+            attrs: { $elemMatch: { key: a[0], value: { $in: values } } },
+          };
+          acc.push(a1);
+          return acc;
+        } else return acc;
+      }, []);
+      queryCondition = true;
+    }
 
     if (queryCondition) {
       query = {
@@ -40,6 +56,7 @@ const getProducts = async (req, res, next) => {
           priceQueryCondition,
           ratingQueryCondition,
           categoryQueryCondition,
+          ...attrsQueryCondition,
         ],
       };
     }
