@@ -12,9 +12,19 @@ import { Rating } from "react-simple-star-rating";
 import AddedToCartMessageComponent from "../components/AddedToCartMessageComponent";
 import ImageZoom from "js-image-zoom";
 import { useEffect } from "react";
-import Quantity from "../components/Quantity";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/actions/cartActions";
 
 const ProductDetailsPage = () => {
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart());
+  };
+
+  const products = useSelector((state) => state.cart.value);
+
   var options = {
     scale: 2,
     offset: { vertical: 0, horizontal: 0 },
@@ -34,20 +44,20 @@ const ProductDetailsPage = () => {
             <Image
               crossOrigin="anonymous"
               fluid
-              src="/images/product/product_1.jpg"
+              src="/images/products/product_1.jpg"
             />
           </div>
           <br />
           <div id="second">
-            <Image fluid src="/images/product/product_2.jpg" />
+            <Image fluid src="/images/products/product_2.jpg" />
           </div>
           <br />
           <div id="third">
-            <Image fluid src="/images/product/product_3.jpg" />
+            <Image fluid src="/images/products/product_3.jpg" />
           </div>
           <br />
           <div id="fourth">
-            <Image fluid src="/images/product/product_4.jpg" />
+            <Image fluid src="/images/products/product_4.jpg" />
           </div>
           <br />
         </Col>
@@ -56,7 +66,7 @@ const ProductDetailsPage = () => {
             <Col md={8}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h1>Product name</h1>
+                  <h1>Product name {products}</h1>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Rating readonly size={20} initialValue={4} /> (1)
@@ -91,7 +101,9 @@ const ProductDetailsPage = () => {
                   </Form.Select>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <Button variant="danger">Add to cart</Button>
+                  <Button onClick={addToCartHandler} variant="danger">
+                    Add to cart
+                  </Button>
                 </ListGroup.Item>
               </ListGroup>
             </Col>
