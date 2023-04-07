@@ -1,49 +1,38 @@
 import { Card, Button, Row, Col } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { Rating } from "react-simple-star-rating";
-import "../styles/product-card.css";
+import { LinkContainer } from "react-router-bootstrap";
 
-const ProductForListComponent = ({ idx }) => {
-  const images = [
-    "/images/products/product_1.jpg",
-    "/images/products/product_2.jpg",
-    "/images/products/product_3.jpg",
-    "/images/products/product_4.jpg",
-    "/images/products/product_5.png",
-  ];
+const ProductForListComponent = ({
+  productId,
+  name,
+  description,
+  price,
+  images,
+  rating,
+  reviewsNumber,
+}) => {
   return (
-    <Card className="product">
+    <Card style={{ marginTop: "30px", marginBottom: "50px" }}>
       <Row>
         <Col lg={5}>
           <Card.Img
+            crossOrigin="anonymous"
             variant="top"
-            src={images[idx]}
-            style={{
-              borderRadius: "20px",
-            }}
+            src={images[0] ? images[0].path : ""}
           />
         </Col>
         <Col lg={7}>
           <Card.Body>
-            <Card.Title>Product Name</Card.Title>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{description}</Card.Text>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Card.Text>
-              <Rating readonly size={20} initialValue={5} /> (1)
+              <Rating readonly size={20} initialValue={rating} /> (
+              {reviewsNumber})
             </Card.Text>
             <Card.Text className="h4">
-              $124{""}
-              <LinkContainer to="/product-details">
-                <Button
-                  variant="danger"
-                  style={{
-                    marginLeft: "15px",
-                  }}
-                >
-                  See Product
-                </Button>
+              ${price}{" "}
+              <LinkContainer to={`/product-details/${productId}`}>
+                <Button variant="danger">See product</Button>
               </LinkContainer>
             </Card.Text>
           </Card.Body>
