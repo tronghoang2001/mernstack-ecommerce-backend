@@ -12,7 +12,7 @@ const AdminLinksComponent = () => {
           <Nav.Link>Products</Nav.Link>
         </LinkContainer>
         <LinkContainer to="/admin/users">
-          <Nav.Link>Users List</Nav.Link>
+          <Nav.Link>Users</Nav.Link>
         </LinkContainer>
         <LinkContainer to="/admin/chats">
           <Nav.Link>Chats</Nav.Link>
