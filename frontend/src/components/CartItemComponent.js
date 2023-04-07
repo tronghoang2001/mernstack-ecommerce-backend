@@ -1,7 +1,6 @@
-import { ListGroup, Row, Col, Image, Button } from "react-bootstrap";
-import Quantity from "../components/Quantity";
+import { Row, Col, Image, ListGroup, Form, Button } from "react-bootstrap";
 
-const CartItemComponent = () => {
+const CartItemComponent = ({ item, orderCreated = false }) => {
   return (
     <>
       <ListGroup.Item>
@@ -9,24 +8,26 @@ const CartItemComponent = () => {
           <Col md={2}>
             <Image
               crossOrigin="anonymous"
-              src="/images/product/product_1.jpg"
+              src={item.image ? item.image.path ?? null : null}
               fluid
             />
           </Col>
+          <Col md={2}>{item.name}</Col>
           <Col md={2}>
-            Nike Jordan series <br />
-            Air Jordan
-          </Col>
-          <Col md={2}>
-            <b>$89</b>
+            <b>${item.price}</b>
           </Col>
           <Col md={3}>
-            {/* <Form.Select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </Form.Select> */}
-            <Quantity />
+            <Form.Select
+              onChange={() => {}}
+              disabled={orderCreated}
+              value={item.quantity}
+            >
+              {[...Array(item.count).keys()].map((x) => (
+                <option key={x + 1} value={x + 1}>
+                  {x + 1}
+                </option>
+              ))}
+            </Form.Select>
           </Col>
           <Col md={3}>
             <Button
