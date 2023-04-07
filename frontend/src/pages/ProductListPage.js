@@ -7,7 +7,10 @@ import RatingFilterComponent from "../components/filterQueryResultOptions/Rating
 import CategoryFilterComponent from "../components/filterQueryResultOptions/CategoryFilterComponent";
 import AttributesFilterComponent from "../components/filterQueryResultOptions/AttributesFilterComponent";
 
+import axios from "axios";
+
 const ProductListPage = () => {
+  axios.get("/api/products").then((res) => console.log(res));
   return (
     <Container fluid>
       <Row>
@@ -17,6 +20,7 @@ const ProductListPage = () => {
               <SortOptionsComponent />
             </ListGroup.Item>
             <ListGroup.Item>
+              FILTER: <br />
               <PriceFilterComponent />
             </ListGroup.Item>
             <ListGroup.Item>
@@ -29,14 +33,18 @@ const ProductListPage = () => {
               <AttributesFilterComponent />
             </ListGroup.Item>
             <ListGroup.Item>
-              <Button variant="primary">Filter</Button>
+              <Button variant="primary">Filter</Button>{" "}
               <Button variant="danger">Reset filters</Button>
             </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={9}>
           {Array.from({ length: 5 }).map((_, idx) => (
-            <ProductForListComponent key={idx} idx={idx} />
+            <ProductForListComponent
+              key={idx}
+              images={["games", "monitors", "tablets", "games", "monitors"]}
+              idx={idx}
+            />
           ))}
           <PaginationComponent />
         </Col>

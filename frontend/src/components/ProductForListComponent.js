@@ -5,11 +5,11 @@ import "../styles/product-card.css";
 
 const ProductForListComponent = ({ idx }) => {
   const images = [
-    "/images/product/product_1.jpg",
-    "/images/product/product_2.jpg",
-    "/images/product/product_3.jpg",
-    "/images/product/product_4.jpg",
-    "/images/product/product_5.png",
+    "/images/products/product_1.jpg",
+    "/images/products/product_2.jpg",
+    "/images/products/product_3.jpg",
+    "/images/products/product_4.jpg",
+    "/images/products/product_5.png",
   ];
   return (
     <Card className="product">
