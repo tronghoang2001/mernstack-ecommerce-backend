@@ -52,7 +52,7 @@ const UsersPageComponent = ({ fetchUsers, deleteUser }) => {
               <th>Last Name</th>
               <th>Email</th>
               <th>Is Admin</th>
-              <th>Edit/Delete</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -70,12 +70,6 @@ const UsersPageComponent = ({ fetchUsers, deleteUser }) => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/admin/edit-user/${user._id}`}>
-                    <Button className="btn-sm">
-                      <i className="bi bi-pencil-square"></i>
-                    </Button>
-                  </LinkContainer>
-                  {" / "}
                   <Button
                     variant="danger"
                     className="btn-sm"
