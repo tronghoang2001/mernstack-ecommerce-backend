@@ -1,80 +1,39 @@
 const categories = [
   {
-    name: "Computers",
+    name: "Laptops",
     description:
-      "Computers - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_1.png",
-    attrs: [
-      { key: "RAM", value: ["1 TB", "2 TB", "4 TB"] },
-      { key: "color", value: ["blue", "red", "green", "black"] },
-    ],
-  },
-  {
-    name: "Computers/Laptops",
-    description:
-      "Computers/Laptops - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_2.jpg",
-  },
-  {
-    name: "Computers/Laptops/Lenovo",
-    description:
-      "Computers/Laptops/Lenovo - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_3.png",
-  },
-  {
-    name: "Computers/Laptops/Dell",
-    description:
-      "Computers/Laptops/Dell - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_4.png",
+      "Laptops - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
+    image: "/images/category/laptop.png",
   },
   {
     name: "Tablets",
     description:
       "Tablets - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
+    image: "/images/category/tablet.png",
   },
   {
-    name: "Monitors",
+    name: "Smart Watch",
     description:
-      "Monitors - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
-  },
-  {
-    name: "Games",
-    description:
-      "Games - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
-  },
-  {
-    name: "Printers",
-    description:
-      "Printers - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
-  },
-  {
-    name: "Software",
-    description:
-      "Software - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
+      "Smart Watch - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
+    image: "/images/category/smartWatch.png",
   },
   {
     name: "Cameras",
     description:
       "Cameras - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
+    image: "/images/category/camera.png",
   },
   {
-    name: "Books",
+    name: "Screens",
     description:
-      "Books - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
-    attrs: [{ key: "genre", value: ["movie", "comedy", "thriller"] }],
+      "Screens - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
+    image: "/images/category/screen.png",
   },
   {
-    name: "Videos",
+    name: "Smart Phone",
     description:
-      "Videos - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/category/category_5.png",
+      "Smart Phone - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
+    image: "/images/category/smartPhone.png",
   },
 ];
 
